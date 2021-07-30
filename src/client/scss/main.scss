@@ -1,0 +1,24 @@
+@use "./components/reset";
+@use "./components/broadsheet";
+@import "./mixins/utils";
+
+body {
+  @include font-source-sans(24px, #181818);
+  color: #181818;
+  width: 100vw;
+  margin: 0 auto;
+  background: #fdf6f0;
+  main {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+a,
+a:visited,
+a:active {
+  cursor: pointer;
+  text-decoration: none;
+  color: #181818;
+}

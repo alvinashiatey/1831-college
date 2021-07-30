@@ -1,0 +1,43 @@
+{% extends "layouts/base.njk" %} 
+
+{% block content %}
+<div class="broadsheet">
+    {{ content | safe }}
+    {% if citation.length %}
+    <div class="broadsheet__container">
+        <div class="broadsheet-grid">
+            {% for item in citation %}
+            <div class="grid-module">
+                <div class="grid-module__content">
+                    <div class="title">
+                        <h2>{{ item.Title }}</h2>
+                    </div>
+                    <div class="pub-title">
+                        <h4>{{item["Publication title"]}}</h4>
+                    </div>
+                    <div class="pub-date">
+                        <p>{{item["Publication date"]}}</p>
+                    </div>
+                </div>
+                <div class="lower-bar">
+                    <a href="{{item.Link}}" target="_blank" title="Link">🔗</a>
+                    <p title="Page"> 📰 [{{ item.Page}}]</p>
+                    {% if item.Issue%}
+                        <p title="Issue"> 🗃 [{{ item.Issue}}]</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="broadsheet-image">
+            <div class="image__container">
+                {% for cImage in citationImage %}
+                    {% image cImage.title, cImage.image.large, cImage.title, "(min-width: 30em) 50vw, 100vw" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+</div>
+{% endblock %}
