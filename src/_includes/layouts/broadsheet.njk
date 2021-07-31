@@ -5,6 +5,10 @@
     {{ content | safe }}
     {% if citation.length %}
     <div class="broadsheet__container">
+        <div class="broadsheet-buttons">
+            <button id="date-btn">Date</button>
+            <button id="title-btn">Title</button>
+        </div>
         <div class="broadsheet-grid">
             {% for item in citation %}
             <div class="grid-module">
